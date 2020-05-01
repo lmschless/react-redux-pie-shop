@@ -3,27 +3,36 @@ import Header from './Header';
 import LeftSection from './LeftSection.js';
 import MiddleSection from './MiddleSection.js';
 import RightSection from './RightSection.js'; // import '../nav.css';
-// import '/components/App.css';
+import ProfileBadge from './ProfileBadge';
 
 function App() {
 	const gridContainer = {
 		display: 'grid',
-		gridTemplateColumns: '.25fr .75fr 1fr .75fr .25fr',
-		gridTemplateRows: '1fr',
-		gridColumnGap: '2px',
-		gridRowGap: '3px',
+		gridTemplateColumns: 'repeat(3, 1fr)',
+		gridTemplateRows: 'repeat(2, .5fr)',
+		gridColumnGap: '.5em',
+		gridRowGap: '.5em',
 		height: '100vh',
 		backgroundColor: '#2f2fa2',
-		fontFamily: "'Baloo Bhaina 2' cursive"
+		fontFamily: "'Baloo Bhaina 2' cursive",
+		padding: '2em'
 	};
 
+	const componentStyle = {};
 	return (
 		<React.Fragment>
 			<Header />
 			<div style={gridContainer}>
-				<LeftSection />
+				<ProfileBadge />
+				<ProfileBadge />
+				<ProfileBadge />
+				<ProfileBadge />
+				<ProfileBadge />
+				<ProfileBadge />
+
+				{/* <LeftSection />
 				<MiddleSection />
-				<RightSection />
+				<RightSection /> */}
 			</div>
 		</React.Fragment>
 	);
