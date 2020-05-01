@@ -34,7 +34,6 @@ import {
 	DropdownToggle,
 	DropdownMenu,
 	DropdownItem,
-	NavbarText,
 	Button
 } from 'reactstrap';
 
@@ -65,22 +64,14 @@ const NavBar = (props) => {
 	return (
 		<div>
 			<Navbar style={navStyles} light expand="md">
-				<NavbarBrand style={textStyles} href="/">
-					Social Media Mockup
-				</NavbarBrand>
+				<center>
+					<NavbarBrand style={textStyles} href="/">
+						Candy Shop{' '}
+					</NavbarBrand>
+				</center>
 				<NavbarToggler onClick={toggle} />
 				<Collapse isOpen={isOpen} navbar>
 					<Nav className="mr-auto" navbar>
-						<NavItem>
-							<NavLink style={textStyles} href="/components/">
-								Explore
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink style={textStyles} href="/components/">
-								Notifications
-							</NavLink>
-						</NavItem>
 						<UncontrolledDropdown style={textStyles} nav inNavbar>
 							<DropdownToggle style={textStyles} nav caret>
 								Settings
@@ -93,11 +84,10 @@ const NavBar = (props) => {
 							</DropdownMenu>
 						</UncontrolledDropdown>
 					</Nav>
-
-					<Button style={highlightStyles} outline>
-						Login
-					</Button>
 				</Collapse>
+				<Button style={highlightStyles} outline>
+					Login
+				</Button>
 			</Navbar>
 		</div>
 	);
