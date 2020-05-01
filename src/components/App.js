@@ -1,8 +1,5 @@
 import React from 'react';
 import Header from './Header';
-import LeftSection from './LeftSection.js';
-import MiddleSection from './MiddleSection.js';
-import RightSection from './RightSection.js'; // import '../nav.css';
 import ProfileBadge from './ProfileBadge';
 
 function App() {

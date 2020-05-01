@@ -1,25 +1,40 @@
 import React from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
-import ActionButtons from './ActionButtons';
+import { Card, CardTitle, CardText, CardImg, Button } from 'reactstrap';
+// import ActionButtons from './ActionButtons';
+import logo from './../assets/pecan.jpeg';
 const Example = (props) => {
 	const profileStyles = {
 		backgroundColor: '#FFFFFF',
 		borderRadius: '1.5em',
 		padding: '2em',
 		maxWidth: '20em',
-		maxHeight: '23em',
-		minHeight: '20em'
+		maxHeight: '25em',
+		minHeight: '22em'
+	};
+
+	const imgStyles = {
+		maxHeight: '12vh',
+		maxWidth: '25vw'
 	};
 	return (
 		<React.Fragment>
 			<Card style={profileStyles} body>
-				<CardTitle>User Profile Card</CardTitle>
+				<CardTitle>Pie Name</CardTitle>
+
+				<center>
+					<CardImg
+						style={imgStyles}
+						top
+						width="100%"
+						src={logo}
+						alt="Card image cap"
+					/>
+				</center>
 				<CardText>
-					React was originally developed by Facebook to manage the dynamic,
-					complex needs of a large social media app. After observing Facebook's
-					success, many other social media applications.
+					React was originally developed by Facebook to manage the dynamic
 				</CardText>
-				<ActionButtons />
+				<hr />
+				<Button color="success">Buy Pie</Button>
 			</Card>
 		</React.Fragment>
 	);
