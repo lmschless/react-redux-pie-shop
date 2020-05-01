@@ -66,7 +66,7 @@ const NavBar = (props) => {
 			<Navbar style={navStyles} light expand="md">
 				<center>
 					<NavbarBrand style={textStyles} href="/">
-						Palatable Pie Shop{' '}
+						Palatable Pie Pantry{' '}
 					</NavbarBrand>
 				</center>
 				<NavbarToggler onClick={toggle} />

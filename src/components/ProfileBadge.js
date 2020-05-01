@@ -5,7 +5,10 @@ const Example = (props) => {
 	const profileStyles = {
 		backgroundColor: '#FFFFFF',
 		borderRadius: '1.5em',
-		padding: '2em'
+		padding: '2em',
+		maxWidth: '20em',
+		maxHeight: '23em',
+		minHeight: '20em'
 	};
 	return (
 		<React.Fragment>
