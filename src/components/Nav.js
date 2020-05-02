@@ -47,7 +47,9 @@ const NavBar = (props) => {
 		paddingBottom: '5em',
 		paddingTop: '2.5em',
 		paddingLeft: '10em',
-		paddingRight: '10em'
+		paddingRight: '10em',
+		borderBottom: '3px solid white',
+		borderColor: '#F64C72'
 	};
 	const textStyles = {
 		color: 'white',
