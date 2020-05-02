@@ -1,36 +1,47 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PieCard from './PieCard';
-import pecan from './../assets/pecan.jpeg';
-import apple from './../assets/apple.jpeg';
-import cherry from './../assets/cherry.jpg';
+import { thistle } from 'color-name';
 
 export default class Store extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pecan: {
-				name: 'Pecan Pie',
-				img: require('./../assets/pecan.jpeg'),
-				count: 4
-			},
-			apple: {
-				name: 'Apple Pie',
-				img: require('./../assets/apple.jpeg'),
-				count: 4
-			},
-			cherry: {
-				name: 'Cherry Pie',
-				img: require('./../assets/cherry.jpg'),
-				count: 4
-			},
-			blueberry: {
-				name: 'Blueberry Pie',
-				img: require('./../assets/pecan.jpeg'),
-				count: 4
-			}
+			pieList: [
+				{
+					name: 'Pecan Pie',
+					img: require('./../assets/pecan.jpeg'),
+					count: 4,
+					id: 1
+				},
+				{
+					name: 'Apple Pie',
+					img: require('./../assets/apple.jpeg'),
+					count: 4,
+					id: 2
+				},
+				{
+					name: 'Cherry Pie',
+					img: require('./../assets/cherry.jpg'),
+					count: 4,
+					id: 3
+				},
+				{
+					name: 'Blueberry Pie',
+					img: require('./../assets/pecan.jpeg'),
+					count: 4,
+					id: 4
+				}
+			]
 		};
 	}
+
+	handlePurchase = (index) => {
+		console.log(index);
+		// const selectedPie = this.state.pieList.filter((pie) => pie.id === id);
+
+		this.setState({});
+	};
 
 	render() {
 		const gridContainer = {
@@ -45,17 +56,36 @@ export default class Store extends Component {
 			padding: '2em',
 			margin: '5em'
 		};
+		const pieList = this.state.pieList;
+		console.log(this.state.pieList);
+
 		return (
 			<div style={gridContainer}>
-				<PieCard
-					name={this.state.pecan.name}
-					img={this.state.pecan.img}
+				{pieList.map((pie, index) => (
+					<PieCard
+						name={pie.name}
+						img={pie.img}
+						count={pie.count}
+						key={index}
+						onPurchase={this.handlePurchase}
+					/>
+				))}
+
+				{/* <PieCard
+          id = {}
+					name={this.state[0].name}
+					img={this.state[1].img}
 					count={this.state.pecan.count}
+					onPurchase={this.handlePurchase}
+				/> */}
+				{/* <PieCard
+					name={this.state.apple.name}
+					img={this.state.apple.img}
+					onPurchase={this.handlePurchase}
 				/>
-				<PieCard name={this.state.apple.name} img={this.state.apple.img} />
 				<PieCard name={this.state.cherry.name} img={this.state.cherry.img} />
 				<PieCard name={this.state.pecan.name} img={this.state.pecan.img} />
-				<PieCard name={this.state.pecan.name} img={this.state.pecan.img} />
+				<PieCard name={this.state.pecan.name} img={this.state.pecan.img} /> */}
 			</div>
 		);
 	}
