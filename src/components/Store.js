@@ -12,35 +12,49 @@ export default class Store extends Component {
 					name: 'Pecan Pie',
 					img: require('./../assets/pecan.jpeg'),
 					count: 4,
-					id: 1
+					id: 0
 				},
 				{
 					name: 'Apple Pie',
 					img: require('./../assets/apple.jpeg'),
 					count: 4,
-					id: 2
+					id: 1
 				},
 				{
 					name: 'Cherry Pie',
 					img: require('./../assets/cherry.jpg'),
 					count: 4,
-					id: 3
+					id: 2
 				},
 				{
 					name: 'Blueberry Pie',
 					img: require('./../assets/pecan.jpeg'),
 					count: 4,
-					id: 4
+					id: 3
 				}
 			]
 		};
 	}
 
-	handlePurchase = (index) => {
-		console.log(index);
-		// const selectedPie = this.state.pieList.filter((pie) => pie.id === id);
+	handlePurchase = (id) => {
+		console.log(id);
 
-		this.setState({});
+		this.setState((prevState) => ({
+			pieList: prevState.pieList.map(
+				(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
+			)
+		}));
+
+		// let updatedList = [ { ...this.state.pieList[0] } ];
+		// console.log(updatedList);
+		// let selectedPie = { ...updatedList[0] };
+		// selectedPie.count = selectedPie.count--;
+		// console.log(selectedPie);
+		// updatedList[0] = selectedPie;
+		// this.setState({ count: selectedPie.count - 1 });
+
+		// const selectedPie = this.state.pieList.filter((pie) => pie.id === id)[0];
+		console.log(this.state.pieList);
 	};
 
 	render() {
@@ -57,7 +71,7 @@ export default class Store extends Component {
 			margin: '5em'
 		};
 		const pieList = this.state.pieList;
-		console.log(this.state.pieList);
+		console.log(this.state.pieList[0]);
 
 		return (
 			<div style={gridContainer}>
@@ -68,6 +82,7 @@ export default class Store extends Component {
 						count={pie.count}
 						key={index}
 						onPurchase={this.handlePurchase}
+						id={pie.id}
 					/>
 				))}
 

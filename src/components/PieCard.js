@@ -38,8 +38,9 @@ function PieCard(props) {
 				</CardText>
 				<hr />
 				<Button
+					id={props.id}
 					onClick={() => {
-						props.onPurchase(props.key);
+						props.onPurchase(props.id);
 					}}
 					color="success"
 				>
@@ -53,7 +54,8 @@ function PieCard(props) {
 PieCard.propTypes = {
 	img: PropTypes.string,
 	count: PropTypes.number,
-	onPurchase: PropTypes.func
+	onPurchase: PropTypes.func,
+	key: PropTypes.number
 };
 
 export default PieCard;
