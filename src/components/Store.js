@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PieCard from './PieCard';
 import pecan from './../assets/pecan.jpeg';
+import apple from './../assets/apple.jpeg';
+import cherry from './../assets/cherry.jpg';
 
 export default class Store extends Component {
 	constructor(props) {
@@ -9,7 +11,23 @@ export default class Store extends Component {
 		this.state = {
 			pecan: {
 				name: 'Pecan Pie',
-				img: require('./../assets/pecan.jpeg')
+				img: require('./../assets/pecan.jpeg'),
+				count: 4
+			},
+			apple: {
+				name: 'Apple Pie',
+				img: require('./../assets/apple.jpeg'),
+				count: 4
+			},
+			cherry: {
+				name: 'Cherry Pie',
+				img: require('./../assets/cherry.jpg'),
+				count: 4
+			},
+			blueberry: {
+				name: 'Blueberry Pie',
+				img: require('./../assets/pecan.jpeg'),
+				count: 4
 			}
 		};
 	}
@@ -29,11 +47,15 @@ export default class Store extends Component {
 		};
 		return (
 			<div style={gridContainer}>
+				<PieCard
+					name={this.state.pecan.name}
+					img={this.state.pecan.img}
+					count={this.state.pecan.count}
+				/>
+				<PieCard name={this.state.apple.name} img={this.state.apple.img} />
+				<PieCard name={this.state.cherry.name} img={this.state.cherry.img} />
 				<PieCard name={this.state.pecan.name} img={this.state.pecan.img} />
-				<PieCard />
-				<PieCard />
-				<PieCard />
-				<PieCard />
+				<PieCard name={this.state.pecan.name} img={this.state.pecan.img} />
 			</div>
 		);
 	}

@@ -13,14 +13,14 @@ function PieCard(props) {
 	};
 
 	const imgStyles = {
-		maxHeight: '12vh',
-		maxWidth: '25vw'
+		maxHeight: '14vh',
+		maxWidth: '27vw',
+		margin: '.25em'
 	};
 	return (
 		<React.Fragment>
 			<Card style={profileStyles} body>
 				<CardTitle>{props.name}</CardTitle>
-
 				<center>
 					<CardImg
 						style={imgStyles}
@@ -34,7 +34,9 @@ function PieCard(props) {
 					React was originally developed by Facebook to manage the dynamic
 				</CardText>
 				<hr />
-				<Button color="success">Buy Pie</Button>
+				<Button color="success">
+					Buy {props.name}: <br />Quantity Left: {props.count}
+				</Button>
 			</Card>
 		</React.Fragment>
 	);
