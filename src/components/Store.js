@@ -10,6 +10,7 @@ export default class Store extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			dynamicForm: null,
 			pieList: [
 				{
 					name: 'Pecan Pie',
@@ -68,9 +69,23 @@ export default class Store extends Component {
 	};
 
 	addPieToList = (pieName, quantity) => {
-		let newPie = this.state.pieList;
+		let newPieList = this.state.pieList;
 		const id = v4();
+		let newPie = {
+			name: pieName,
+			img: require('./../assets/pecan.jpeg'),
+			count: quantity,
+			id: id
+		};
+		newPieList.unshift(newPie);
+		this.setState({ pieList: newPieList });
 		// console.log(pieName, quantity, id);
+	};
+
+	pieForm = () => {
+		this.setState({
+			dynamicForm: <PieForm addPie={this.addPieToList} />
+		});
 	};
 
 	render() {
@@ -91,9 +106,9 @@ export default class Store extends Component {
 
 		return (
 			<React.Fragment>
-				<NavBar />
+				<NavBar onForm={this.pieForm} />
 				<div style={gridContainer}>
-					{/* <PieForm addPie={this.addPieToList} /> */}
+					{this.state.dynamicForm}
 					{pieList.map((pie) => (
 						<PieCard
 							name={pie.name}

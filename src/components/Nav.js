@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import {
 	Collapse,
 	Navbar,
@@ -64,12 +66,16 @@ const NavBar = (props) => {
 						</UncontrolledDropdown>
 					</Nav>
 				</Collapse>
-				<Button style={highlightStyles} outline>
-					Login
+				<Button onClick={props.pieForm} style={highlightStyles} outline>
+					Add New Pie
 				</Button>
 			</Navbar>
 		</div>
 	);
+};
+
+NavBar.propTypes = {
+	pieForm: PropTypes.func
 };
 
 export default NavBar;
