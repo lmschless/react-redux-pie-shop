@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardText, CardImg, Button } from 'reactstrap';
-// import ActionButtons from './ActionButtons';
+import { Card, CardTitle, CardText, Button } from 'reactstrap';
 function PieForm(props) {
 	const $ = (idd) => document.getElementById(idd);
 
@@ -11,44 +10,31 @@ function PieForm(props) {
 		padding: '1.5em',
 		maxWidth: '20em',
 		maxHeight: '27em',
-		minHeight: '22em'
-	};
-
-	const imgStyles = {
-		maxHeight: '14vh',
-		maxWidth: '27vw',
-		margin: '.25em',
-		border: 'solid 1px black'
+		minHeight: '22em',
+		paddingTop: '5em'
 	};
 
 	return (
 		<React.Fragment>
 			<Card style={cardStyles} body>
-				<h3>
-					<CardTitle>
-						<label>
-							Name of Pie: <input style={{ maxWidth: '3em' }} id="pie-name" />
-						</label>
-					</CardTitle>
-				</h3>
-				<center>
-					<CardImg
-						style={imgStyles}
-						top
-						width="100%"
-						src={require('./../assets/generic-pie.jpeg')}
-						alt="Card image cap"
-					/>
-				</center>
 				<CardText>
-					<label>
-						Quantity: <input id="pie-quantity" />
-					</label>
+					<input placeholder="Name of Pie" id="pie-name" type="text" />
+					<br />
+					<br />
+
+					<input placeholder="Description" id="description" type="text" />
+					<br />
+					<br />
+					<input placeholder="Quantity" id="pie-quantity" type="number" />
 				</CardText>
 				<hr />
 				<Button
 					onClick={() => {
-						props.addPie($('pie-name').value, $('pie-quantity').value);
+						props.addPie(
+							$('pie-name').value,
+							$('description').value,
+							$('pie-quantity').value
+						);
 					}}
 					color="success"
 				>

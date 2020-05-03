@@ -17,34 +17,29 @@ export default class Store extends Component {
 					description: 'Yummy Pecan Pie',
 					img: require('./../assets/pecan.jpeg'),
 					count: 4
-					// id: 0
 				},
 				{
 					name: 'Apple Pie',
 					description: 'Yummy Apple Pie',
 					img: require('./../assets/apple.jpeg'),
 					count: 4
-					// id: v4()
 				},
 				{
 					name: 'Cherry Pie',
 					description: 'Yummy Cherry Pie',
 					img: require('./../assets/cherry.jpg'),
 					count: 4
-					// id: v4()
 				},
 				{
 					name: 'Blueberry Pie',
 					description: 'Yummy Blueberry Pie',
 					img: require('./../assets/blueberry.jpeg'),
 					count: 4
-					// id: v4()
 				}
 			]
 		};
 		this.state.pieList.forEach((pie) => {
 			pie.id = v4();
-			// console.log(pie, pie.id);
 		});
 	}
 
@@ -72,17 +67,18 @@ export default class Store extends Component {
 		// console.log(this.state.pieList);
 	};
 
-	addPieToList = (pieName, quantity) => {
+	addPieToList = (pieName, description, quantity) => {
 		let newPieList = this.state.pieList;
 		const id = v4();
 		let newPie = {
 			name: pieName,
+			description: description,
 			img: require('./../assets/generic-pie.jpeg'),
 			count: quantity,
 			id: id
 		};
 		newPieList.unshift(newPie);
-		this.setState({ pieList: newPieList });
+		this.setState({ pieList: newPieList, dynamicForm: null });
 		// console.log(pieName, quantity, id);
 	};
 
