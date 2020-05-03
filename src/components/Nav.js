@@ -66,7 +66,13 @@ const NavBar = (props) => {
 						</UncontrolledDropdown>
 					</Nav>
 				</Collapse>
-				<Button onClick={props.pieForm} style={highlightStyles} outline>
+				<Button
+					onClick={() => {
+						props.onForm();
+					}}
+					style={highlightStyles}
+					outline
+				>
 					Add New Pie
 				</Button>
 			</Navbar>
@@ -75,7 +81,7 @@ const NavBar = (props) => {
 };
 
 NavBar.propTypes = {
-	pieForm: PropTypes.func
+	onForm: PropTypes.func
 };
 
 export default NavBar;

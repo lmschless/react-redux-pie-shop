@@ -73,7 +73,7 @@ export default class Store extends Component {
 		const id = v4();
 		let newPie = {
 			name: pieName,
-			img: require('./../assets/pecan.jpeg'),
+			img: require('./../assets/generic-pie.jpeg'),
 			count: quantity,
 			id: id
 		};
