@@ -21,7 +21,6 @@ function PieForm(props) {
 					<input placeholder="Name of Pie" id="pie-name" type="text" />
 					<br />
 					<br />
-
 					<input placeholder="Description" id="description" type="text" />
 					<br />
 					<br />

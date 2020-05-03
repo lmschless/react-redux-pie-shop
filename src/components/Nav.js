@@ -11,10 +11,12 @@ const NavBar = (props) => {
 		paddingTop: '2.5em',
 		paddingLeft: '10em',
 		paddingRight: '10em',
-		borderBottom: '3px solid white',
+		borderBottom: '3px solid',
 		borderColor: '#F64C72'
 	};
 	const textStyles = {
+		marginLeft: '10vw',
+		marginRight: '2vw',
 		color: 'white',
 		backgroundColor: '#2f2fa2',
 		fontSize: '1.5em',
@@ -31,11 +33,9 @@ const NavBar = (props) => {
 	return (
 		<div>
 			<Navbar style={navStyles} light expand="md">
-				<center>
-					<NavbarBrand style={textStyles} href="/">
-						Palatable Pie Pantry{' '}
-					</NavbarBrand>
-				</center>
+				<NavbarBrand style={textStyles} href="/">
+					<h2>Palatable Pie Pantry</h2>
+				</NavbarBrand>
 				<Button
 					onClick={() => {
 						props.onForm();
@@ -43,7 +43,7 @@ const NavBar = (props) => {
 					style={highlightStyles}
 					outline
 				>
-					Add New Pie
+					Submit Pie Order Form
 				</Button>
 			</Navbar>
 		</div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import PieCard from './PieCard';
 import NavBar from './Nav';
@@ -16,13 +15,13 @@ export default class Store extends Component {
 					name: 'Pecan Pie',
 					description: 'Yummy Pecan Pie',
 					img: require('./../assets/pecan.jpeg'),
-					count: 4
+					count: 8
 				},
 				{
 					name: 'Apple Pie',
 					description: 'Yummy Apple Pie',
 					img: require('./../assets/apple.jpeg'),
-					count: 4
+					count: 5
 				},
 				{
 					name: 'Cherry Pie',
@@ -34,7 +33,7 @@ export default class Store extends Component {
 					name: 'Blueberry Pie',
 					description: 'Yummy Blueberry Pie',
 					img: require('./../assets/blueberry.jpeg'),
-					count: 4
+					count: 2
 				}
 			]
 		};
@@ -79,7 +78,6 @@ export default class Store extends Component {
 		};
 		newPieList.unshift(newPie);
 		this.setState({ pieList: newPieList, dynamicForm: null });
-		// console.log(pieName, quantity, id);
 	};
 
 	pieForm = () => {
@@ -102,7 +100,6 @@ export default class Store extends Component {
 			margin: '5em'
 		};
 		const pieList = this.state.pieList;
-		console.log(pieList);
 
 		return (
 			<React.Fragment>

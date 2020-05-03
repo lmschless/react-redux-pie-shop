@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardTitle, CardText, CardImg, Button } from 'reactstrap';
-// import ActionButtons from './ActionButtons';
 function PieCard(props) {
 	const cardStyles = {
 		backgroundColor: '#FFFFFF',
@@ -18,6 +17,7 @@ function PieCard(props) {
 		margin: '.25em',
 		border: 'solid 1px black'
 	};
+
 	return (
 		<React.Fragment>
 			<Card style={cardStyles} body>
@@ -42,7 +42,7 @@ function PieCard(props) {
 					}}
 					color="success"
 				>
-					Buy {props.name} <br />Quantity Left: {props.count}
+					Buy {props.name} <br />Quantity Left: <b>{props.count}</b>
 				</Button>
 			</Card>
 		</React.Fragment>
