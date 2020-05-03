@@ -39,28 +39,37 @@ export default class Store extends Component {
 		};
 		this.state.pieList.forEach((pie) => {
 			pie.id = v4();
-			console.log(pie, pie.id);
+			// console.log(pie, pie.id);
 		});
 	}
 
 	handlePurchase = (id) => {
-		console.log(id, this.state.pieList);
-		if (this.state.pieList[0].count === 0) {
-			return;
+		const selectedPie = this.state.pieList.filter((pie) => pie.id === id)[0];
+		if (selectedPie.count > 0) {
+			selectedPie.count = selectedPie.count - 1;
 		} else {
-			console.log(this.state.pieList.count);
-			this.setState((prevState) => ({
-				pieList: this.state.pieList.map(
-					(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
-				)
-			}));
+			return selectedPie;
 		}
-		console.log(this.state.pieList);
+		this.setState({
+			pie: selectedPie
+		});
+		console.log(selectedPie);
+		// if (pieList[0].count === 0) {
+		// 	return;
+		// } else {
+		// 	console.log(this.state.pieList.count);
+		// 	this.setState((prevState) => ({
+		// 		pieList: this.state.pieList.map(
+		// 			(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
+		// 		)
+		// 	}));
+		// }
+		// console.log(this.state.pieList);
 	};
 
-	addPieToList = (pieName, quantity, id) => {
+	addPieToList = (pieName, quantity) => {
 		let newPie = this.state.pieList;
-		const newId = v4();
+		const id = v4();
 		// console.log(pieName, quantity, id);
 	};
 
@@ -78,7 +87,7 @@ export default class Store extends Component {
 			margin: '5em'
 		};
 		const pieList = this.state.pieList;
-		console.log(this.state.pieList[0]);
+		console.log(pieList);
 
 		return (
 			<React.Fragment>
