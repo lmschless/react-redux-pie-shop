@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, CardTitle, CardText, CardImg, Button } from 'reactstrap';
 // import ActionButtons from './ActionButtons';
 function PieCard(props) {
-	const profileStyles = {
+	const cardStyles = {
 		backgroundColor: '#FFFFFF',
 		borderRadius: '1.5em',
 		padding: '1.5em',
@@ -20,7 +20,7 @@ function PieCard(props) {
 	};
 	return (
 		<React.Fragment>
-			<Card style={profileStyles} body>
+			<Card style={cardStyles} body>
 				<h3>
 					<CardTitle>{props.name}</CardTitle>
 				</h3>
