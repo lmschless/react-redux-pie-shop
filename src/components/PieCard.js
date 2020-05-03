@@ -33,9 +33,7 @@ function PieCard(props) {
 						alt="Card image cap"
 					/>
 				</center>
-				<CardText>
-					React was originally developed by Facebook to manage the dynamic
-				</CardText>
+				<CardText>{props.description}</CardText>
 				<hr />
 				<Button
 					id={props.id}
@@ -56,7 +54,8 @@ PieCard.propTypes = {
 	img: PropTypes.string,
 	count: PropTypes.number,
 	onPurchase: PropTypes.func,
-	key: PropTypes.number
+	key: PropTypes.number,
+	description: PropTypes.string
 };
 
 export default PieCard;

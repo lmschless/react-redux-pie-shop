@@ -27,7 +27,7 @@ function PieForm(props) {
 				<h3>
 					<CardTitle>
 						<label>
-							Name of Pie: <input id="pie-name" />
+							Name of Pie: <input style={{ maxWidth: '3em' }} id="pie-name" />
 						</label>
 					</CardTitle>
 				</h3>
@@ -36,7 +36,7 @@ function PieForm(props) {
 						style={imgStyles}
 						top
 						width="100%"
-						src={props.img}
+						src={require('./../assets/generic-pie.jpeg')}
 						alt="Card image cap"
 					/>
 				</center>
@@ -48,7 +48,7 @@ function PieForm(props) {
 				<hr />
 				<Button
 					onClick={() => {
-						props.addPie($('pie-name').value, $('pie-quantity').value, 5);
+						props.addPie($('pie-name').value, $('pie-quantity').value);
 					}}
 					color="success"
 				>
