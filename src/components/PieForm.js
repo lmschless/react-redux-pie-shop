@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Card, CardTitle, CardText, CardImg, Button } from 'reactstrap';
 // import ActionButtons from './ActionButtons';
 function PieForm(props) {
+	const $ = (idd) => document.getElementById(idd);
+
 	const cardStyles = {
 		backgroundColor: '#FFFFFF',
 		borderRadius: '1.5em',
@@ -18,13 +20,14 @@ function PieForm(props) {
 		margin: '.25em',
 		border: 'solid 1px black'
 	};
+
 	return (
 		<React.Fragment>
 			<Card style={cardStyles} body>
 				<h3>
 					<CardTitle>
 						<label>
-							Name: <input id="pie-name" />
+							Name of Pie: <input id="pie-name" />
 						</label>
 					</CardTitle>
 				</h3>
@@ -38,17 +41,18 @@ function PieForm(props) {
 					/>
 				</center>
 				<CardText>
-					React was originally developed by Facebook to manage the dynamic
+					<label>
+						Quantity: <input id="pie-quantity" />
+					</label>
 				</CardText>
 				<hr />
 				<Button
-					id={props.id}
 					onClick={() => {
-						props.onPurchase(props.id);
+						props.addPie($('pie-name').value, $('pie-quantity').value, 5);
 					}}
 					color="success"
 				>
-					Buy {props.name} <br />Quantity Left: {props.count}
+					Submit Order <br />
 				</Button>
 			</Card>
 		</React.Fragment>
@@ -58,8 +62,8 @@ function PieForm(props) {
 PieForm.propTypes = {
 	img: PropTypes.string,
 	count: PropTypes.number,
-	onPurchase: PropTypes.func,
-	key: PropTypes.number
+	key: PropTypes.number,
+	addPie: PropTypes.func
 };
 
 export default PieForm;

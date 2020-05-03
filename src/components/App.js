@@ -5,7 +5,7 @@ import Store from './Store';
 function App() {
 	return (
 		<React.Fragment>
-			<NavBar />
+			{/* <NavBar  /> */}
 			<Store />
 		</React.Fragment>
 	);
