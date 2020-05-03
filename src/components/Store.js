@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PieCard from './PieCard';
-import { thistle } from 'color-name';
+// import { thistle } from 'color-name';
 
 export default class Store extends Component {
 	constructor(props) {
@@ -38,23 +38,16 @@ export default class Store extends Component {
 
 	handlePurchase = (id) => {
 		console.log(id);
-
-		this.setState((prevState) => ({
-			pieList: prevState.pieList.map(
-				(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
-			)
-		}));
-
-		// let updatedList = [ { ...this.state.pieList[0] } ];
-		// console.log(updatedList);
-		// let selectedPie = { ...updatedList[0] };
-		// selectedPie.count = selectedPie.count--;
-		// console.log(selectedPie);
-		// updatedList[0] = selectedPie;
-		// this.setState({ count: selectedPie.count - 1 });
-
-		// const selectedPie = this.state.pieList.filter((pie) => pie.id === id)[0];
-		console.log(this.state.pieList);
+		if (this.state.pieList[id].count === 0) {
+			return;
+		} else {
+			this.setState((prevState) => ({
+				pieList: prevState.pieList.map(
+					(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
+				)
+			}));
+			console.log(this.state.pieList);
+		}
 	};
 
 	render() {
@@ -92,8 +85,8 @@ export default class Store extends Component {
 					img={this.state[1].img}
 					count={this.state.pecan.count}
 					onPurchase={this.handlePurchase}
-				/> */}
-				{/* <PieCard
+				/> 
+				 <PieCard
 					name={this.state.apple.name}
 					img={this.state.apple.img}
 					onPurchase={this.handlePurchase}
