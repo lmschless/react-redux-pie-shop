@@ -33,7 +33,7 @@
 
 ## Component Map
 
-![component map](PieShop-component-diagram)
+![component map](PieShop-component-diagram.png)
 
 ## Technologies Used
 
