@@ -18,23 +18,23 @@ export default class Store extends Component {
 						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/pecan.jpeg'),
 					count: 8,
-					shouldHide: false
+					displayDetails: false
 				},
 				{
 					name: 'Apple Pie',
 					longDescription:
-						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+						'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
 					img: require('./../assets/apple.jpeg'),
 					count: 5,
-					shouldHide: false
+					displayDetails: false
 				},
 				{
 					name: 'Cherry Pie',
 					longDescription:
-						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+						'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
 					img: require('./../assets/cherry.jpg'),
 					count: 4,
-					shouldHide: false
+					displayDetails: false
 				},
 				{
 					name: 'Blueberry Pie',
@@ -42,7 +42,7 @@ export default class Store extends Component {
 						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/blueberry.jpeg'),
 					count: 2,
-					shouldHide: false
+					displayDetails: false
 				}
 			]
 		};
@@ -77,7 +77,7 @@ export default class Store extends Component {
 
 	pieDetail = (id) => {
 		const selectedCard = this.state.pieList.filter((pie) => pie.id === id)[0];
-		selectedCard.shouldHide = !selectedCard.shouldHide;
+		selectedCard.displayDetails = !selectedCard.displayDetails;
 		this.setState({
 			pie: selectedCard
 		});
@@ -92,7 +92,7 @@ export default class Store extends Component {
 			img: require('./../assets/generic-pie.jpeg'),
 			count: quantity,
 			id: id,
-			shouldHide: false
+			displayDetails: false
 		};
 		newPieList.unshift(newPie);
 		this.setState({ pieList: newPieList, dynamicForm: null });
@@ -110,7 +110,7 @@ export default class Store extends Component {
 			gridTemplateColumns: 'repeat(auto-fill, minmax(20em, 3fr))',
 			gridTemplateRows: 'repeat(2, .5fr)',
 			gridColumnGap: '.5em',
-			gridRowGap: '.5em',
+			gridRowGap: '1em',
 			height: '100vh',
 			backgroundColor: '#2f2fa2',
 			fontFamily: "'Baloo Bhaina 2' cursive",
@@ -132,7 +132,7 @@ export default class Store extends Component {
 							key={pie.id}
 							onPurchase={this.handlePurchase}
 							showDetails={this.pieDetail}
-							hide={pie.shouldHide}
+							hide={pie.displayDetails}
 							id={pie.id}
 							longDescription={pie.longDescription}
 							style={this.state.style}

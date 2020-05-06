@@ -9,7 +9,7 @@ function PieForm(props) {
 		borderRadius: '1.5em',
 		padding: '1.5em',
 		maxWidth: '20em',
-		maxHeight: '27em',
+		maxHeight: '30em',
 		minHeight: '22em',
 		paddingTop: '5em'
 	};
