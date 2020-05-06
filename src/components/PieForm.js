@@ -16,7 +16,7 @@ function PieForm(props) {
 
 	const formStyles = {
 		border: 'none',
-		fontSize: '16px'
+		fontSize: '1.5em'
 	};
 
 	return (
