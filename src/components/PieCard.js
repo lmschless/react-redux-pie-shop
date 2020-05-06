@@ -15,7 +15,8 @@ function PieCard(props) {
 		maxHeight: '14vh',
 		maxWidth: '27vw',
 		margin: '.25em',
-		border: 'solid 1px black'
+		border: 'solid 1px black',
+		cursor: 'pointer'
 	};
 
 	return (
@@ -32,13 +33,14 @@ function PieCard(props) {
 						src={props.img}
 						alt="Card image cap"
 						onClick={() => {
-							props.showDetails();
+							props.showDetails(props.id);
 						}}
 					/>
 				</center>
-				<CardText>{props.description}</CardText>
-
-				<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
+				{/* <CardText>{props.description}</CardText> */}
+				<CardText>
+					<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
+				</CardText>
 				<hr />
 				<Button
 					id={props.id}

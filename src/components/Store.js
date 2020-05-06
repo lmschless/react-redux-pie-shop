@@ -10,34 +10,39 @@ export default class Store extends Component {
 		super(props);
 		this.state = {
 			dynamicForm: null,
-			shouldHide: false,
 			style: { display: 'none' },
 			pieList: [
 				{
 					name: 'Pecan Pie',
-					description: 'Yummy Pecan Pie',
 					longDescription:
 						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/pecan.jpeg'),
-					count: 8
+					count: 8,
+					shouldHide: false
 				},
 				{
 					name: 'Apple Pie',
-					description: 'Yummy Apple Pie',
+					longDescription:
+						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/apple.jpeg'),
-					count: 5
+					count: 5,
+					shouldHide: false
 				},
 				{
 					name: 'Cherry Pie',
-					description: 'Yummy Cherry Pie',
+					longDescription:
+						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/cherry.jpg'),
-					count: 4
+					count: 4,
+					shouldHide: false
 				},
 				{
 					name: 'Blueberry Pie',
-					description: 'Yummy Blueberry Pie',
+					longDescription:
+						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/blueberry.jpeg'),
-					count: 2
+					count: 2,
+					shouldHide: false
 				}
 			]
 		};
@@ -70,10 +75,12 @@ export default class Store extends Component {
 		// console.log(this.state.pieList);
 	};
 
-	pieDetail = () => {
-		this.setState((prevState) => ({
-			shouldHide: !prevState.shouldHide
-		}));
+	pieDetail = (id) => {
+		const selectedCard = this.state.pieList.filter((pie) => pie.id === id)[0];
+		selectedCard.shouldHide = !selectedCard.shouldHide;
+		this.setState({
+			pie: selectedCard
+		});
 	};
 
 	addPieToList = (pieName, description, quantity) => {
@@ -125,11 +132,11 @@ export default class Store extends Component {
 							key={pie.id}
 							onPurchase={this.handlePurchase}
 							showDetails={this.pieDetail}
-							hide={this.state.shouldHide}
+							hide={pie.shouldHide}
 							id={pie.id}
-							description={pie.description}
-							style={this.state.style}
 							longDescription={pie.longDescription}
+							style={this.state.style}
+							// longDescription={pie.longDescription}
 						/>
 					))}
 				</div>
