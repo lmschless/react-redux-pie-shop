@@ -1,6 +1,6 @@
 # Pie Shop Using React - Independent Project for Epicodus. 
 
-
+<img src='./PieShop.gif'/>
 ![](PieShop).gif)
 
 
