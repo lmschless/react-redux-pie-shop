@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardText, Button } from 'reactstrap';
+import { Card, CardText, Button } from 'reactstrap';
 function PieForm(props) {
 	const $ = (idd) => document.getElementById(idd);
 

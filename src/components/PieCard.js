@@ -37,10 +37,7 @@ function PieCard(props) {
 						}}
 					/>
 				</center>
-				{/* <CardText>{props.description}</CardText> */}
-				<CardText>
-					<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
-				</CardText>
+				<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
 				<hr />
 				<Button
 					id={props.id}

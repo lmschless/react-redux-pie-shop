@@ -88,11 +88,11 @@ export default class Store extends Component {
 		const id = v4();
 		let newPie = {
 			name: pieName,
-			description: description,
 			longDescription: description,
 			img: require('./../assets/generic-pie.jpeg'),
 			count: quantity,
-			id: id
+			id: id,
+			shouldHide: false
 		};
 		newPieList.unshift(newPie);
 		this.setState({ pieList: newPieList, dynamicForm: null });
