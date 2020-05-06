@@ -3,6 +3,7 @@ import { v4 } from 'uuid';
 import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
+import PieDetail from './PieDetail';
 
 // import { thistle } from 'color-name';
 export default class Store extends Component {
@@ -64,6 +65,12 @@ export default class Store extends Component {
 		// 	}));
 		// }
 		// console.log(this.state.pieList);
+	};
+
+	pieDetail = () => {
+		this.setState({
+			dyanmicForm: <PieDetail pieForm={this.pieForm} />
+		});
 	};
 
 	addPieToList = (pieName, description, quantity) => {
