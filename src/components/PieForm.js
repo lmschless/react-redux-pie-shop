@@ -14,17 +14,37 @@ function PieForm(props) {
 		paddingTop: '5em'
 	};
 
+	const formStyles = {
+		border: 'none',
+		fontSize: '16px'
+	};
+
 	return (
 		<React.Fragment>
 			<Card style={cardStyles} body>
 				<CardText>
-					<input placeholder="Name of Pie" id="pie-name" type="text" />
+					<input
+						style={formStyles}
+						placeholder="Name of Pie"
+						id="pie-name"
+						type="text"
+					/>
 					<br />
 					<br />
-					<input placeholder="Description" id="description" type="text" />
+					<input
+						style={formStyles}
+						placeholder="Description"
+						id="description"
+						type="text"
+					/>
 					<br />
 					<br />
-					<input placeholder="Quantity" id="pie-quantity" type="number" />
+					<input
+						style={formStyles}
+						placeholder="Quantity"
+						id="pie-quantity"
+						type="number"
+					/>
 				</CardText>
 				<hr />
 				<Button

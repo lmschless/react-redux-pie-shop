@@ -1,19 +1,13 @@
 body {
-	--margin: 0;
 	font-family: 'Baloo Bhaina 2', cursive;
 	-webkit-font-smoothing: antialiased;
+	--margin: 0;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
-	font-family: 'Baloo Bhaina 2', cursive;
-}
-
-.testStyles {
-	opacity: .2;
-}
-
 #root {
+	font-family: 'Baloo Bhaina 2', cursive;
+
 	background-color: #2f2fa2;
 }
 
