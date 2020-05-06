@@ -3,7 +3,7 @@
 ## _5/5/20_
 ### By _**Luke Schlessinger**_
 
-<img src='./test.gif'>
+<img src='./test1.gif'>
 
 * #### _The app handles new pie card creation after user clicks on the nav button. The PieForm component is rendered and once the user clicks submit, a new pie is added to the beginning parent's state array. On next render, this new card will display at the first position._
 
