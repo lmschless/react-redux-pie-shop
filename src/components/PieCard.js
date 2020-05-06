@@ -7,7 +7,7 @@ function PieCard(props) {
 		borderRadius: '1.5em',
 		padding: '1.5em',
 		maxWidth: '20em',
-		maxHeight: '27em',
+		maxHeight: '30em',
 		minHeight: '22em'
 	};
 
@@ -31,9 +31,14 @@ function PieCard(props) {
 						width="100%"
 						src={props.img}
 						alt="Card image cap"
+						onClick={() => {
+							props.showDetails();
+						}}
 					/>
 				</center>
 				<CardText>{props.description}</CardText>
+
+				<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
 				<hr />
 				<Button
 					id={props.id}
@@ -53,6 +58,7 @@ PieCard.propTypes = {
 	img: PropTypes.string,
 	count: PropTypes.number,
 	onPurchase: PropTypes.func,
+	showDetails: PropTypes.func,
 	key: PropTypes.number,
 	description: PropTypes.string
 };

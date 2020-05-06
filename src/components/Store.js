@@ -3,7 +3,6 @@ import { v4 } from 'uuid';
 import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
-import PieDetail from './PieDetail';
 
 // import { thistle } from 'color-name';
 export default class Store extends Component {
@@ -11,10 +10,14 @@ export default class Store extends Component {
 		super(props);
 		this.state = {
 			dynamicForm: null,
+			shouldHide: false,
+			style: { display: 'none' },
 			pieList: [
 				{
 					name: 'Pecan Pie',
 					description: 'Yummy Pecan Pie',
+					longDescription:
+						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 					img: require('./../assets/pecan.jpeg'),
 					count: 8
 				},
@@ -68,9 +71,9 @@ export default class Store extends Component {
 	};
 
 	pieDetail = () => {
-		this.setState({
-			dyanmicForm: <PieDetail pieForm={this.pieForm} />
-		});
+		this.setState((prevState) => ({
+			shouldHide: !prevState.shouldHide
+		}));
 	};
 
 	addPieToList = (pieName, description, quantity) => {
@@ -79,6 +82,7 @@ export default class Store extends Component {
 		let newPie = {
 			name: pieName,
 			description: description,
+			longDescription: description,
 			img: require('./../assets/generic-pie.jpeg'),
 			count: quantity,
 			id: id
@@ -120,8 +124,12 @@ export default class Store extends Component {
 							count={pie.count}
 							key={pie.id}
 							onPurchase={this.handlePurchase}
+							showDetails={this.pieDetail}
+							hide={this.state.shouldHide}
 							id={pie.id}
 							description={pie.description}
+							style={this.state.style}
+							longDescription={pie.longDescription}
 						/>
 					))}
 				</div>
