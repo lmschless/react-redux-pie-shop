@@ -31,9 +31,9 @@
 ## Future Features
 * 
 
-## Support and contact details
+## Component Map
 
-_Please open an issue if you find any bugs, thanks!_
+![component map](PieShop-component-diagram)
 
 ## Technologies Used
 
