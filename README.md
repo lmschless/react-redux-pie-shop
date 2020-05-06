@@ -1,7 +1,9 @@
 # Pie Shop Using React - Independent Project for Epicodus. 
-<center>
-<img src='./PieShop.gif' style="margin-left: 8vw">
-</center>
+
+## _5/5/20_
+## By _**Luke Schlessinger**_
+
+<img src='./PieShop.gif'>
 
 * #### _The app handles new pie card creation after user clicks on the nav button. The PieForm component is rendered and once the user clicks submit, a new pie is added to the beginning parent's state array. On next render, this new card will display at the first position._
 
@@ -11,8 +13,7 @@
 
 
 
-#### _5/5/20_
-#### By _**Luke Schlessinger**_
+
 
 ## Setup/Installation Requirements
 * _Clone repo, run npm install, type "npm start" (you may have to refresh the page once for it to load). Card images are clickable which will display the card details!_
