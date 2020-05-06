@@ -16,7 +16,7 @@
 
 
 ## Setup/Installation Requirements
-* _Clone repo, run npm install, type "npm start" (you may have to refresh the page once for it to load). Card images are clickable which will display the card details!_
+* `_Clone repo, run npm install, type "npm start" (you may have to refresh the page once for it to load). Card images are clickable which will display the card details!_`
 
 ## Specifications:
   * Spec 1: The app loads with 4 cards featuring 4 different pies. These are created dynamically using an array of objects stored in state.
