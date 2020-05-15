@@ -61,18 +61,6 @@ export default class Store extends Component {
 		this.setState({
 			pie: selectedPie
 		});
-		console.log(selectedPie);
-		// if (pieList[0].count === 0) {
-		// 	return;
-		// } else {
-		// 	console.log(this.state.pieList.count);
-		// 	this.setState((prevState) => ({
-		// 		pieList: this.state.pieList.map(
-		// 			(pie) => (pie.id === id ? { ...pie, count: pie.count-- } : pie)
-		// 		)
-		// 	}));
-		// }
-		// console.log(this.state.pieList);
 	};
 
 	pieDetail = (id) => {
@@ -136,7 +124,6 @@ export default class Store extends Component {
 							id={pie.id}
 							longDescription={pie.longDescription}
 							style={this.state.style}
-							// longDescription={pie.longDescription}
 						/>
 					))}
 				</div>

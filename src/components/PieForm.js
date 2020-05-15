@@ -49,11 +49,16 @@ function PieForm(props) {
 				<hr />
 				<Button
 					onClick={() => {
-						props.addPie(
-							$('pie-name').value,
-							$('description').value,
-							$('pie-quantity').value
-						);
+						const quantity = parseInt($('pie-quantity').value);
+						if (!isNaN(quantity)) {
+							props.addPie(
+								$('pie-name').value,
+								$('description').value,
+								parseInt($('pie-quantity').value)
+							);
+						} else {
+							alert('Please input a number.');
+						}
 					}}
 					color="success"
 				>

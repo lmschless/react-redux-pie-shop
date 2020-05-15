@@ -26,8 +26,6 @@ const NavBar = (props) => {
 		color: '#F64C72',
 		borderColor: '#F64C72',
 		fontWeight: 'bold',
-		// height: '3.5em',
-		// width: '7em',
 		fontSize: '1em'
 	};
 	return (
