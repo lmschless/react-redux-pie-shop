@@ -58,7 +58,6 @@ PieCard.propTypes = {
 	count: PropTypes.number,
 	onPurchase: PropTypes.func,
 	showDetails: PropTypes.func,
-	key: PropTypes.number,
 	description: PropTypes.string
 };
 

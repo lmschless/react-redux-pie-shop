@@ -67,7 +67,6 @@ function PieForm(props) {
 PieForm.propTypes = {
 	img: PropTypes.string,
 	count: PropTypes.number,
-	key: PropTypes.number,
 	addPie: PropTypes.func
 };
 
