@@ -1,1 +1,1 @@
-export const PIE_LIST = 'PIE_LIST';
+export const ADD_PIE = 'ADD_PIE';

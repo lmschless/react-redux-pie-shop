@@ -36,7 +36,7 @@ const initialPieList = [
 	}
 ];
 
-this.state.pieList.forEach((pie) => {
+initialPieList.forEach((pie) => {
 	pie.id = v4();
 });
 
