@@ -10,7 +10,8 @@ export default (state = {}, action) => {
 					longDescription: longDescription,
 					img: img,
 					count: count,
-					displayDetails: displayDetails
+					displayDetails: displayDetails,
+					id: id
 				}
 			});
 		default:
