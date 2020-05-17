@@ -1,4 +1,4 @@
-# Pie Shop Using React - Independent Project for Epicodus. 
+# Pie Shop Using React and Redux - Independent Project for Epicodus. 
 
 ## _5/5/20_
 ### By _**Luke Schlessinger**_
