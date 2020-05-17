@@ -5,10 +5,12 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
-import reducer from './reducers/pie-list-reducer';
 import { Provider } from 'react-redux';
+import reducer from './reducers/pie-list-reducer';
 
 const store = createStore(reducer);
+
+store.subscribe(() => console.log(state.getState()));
 
 ReactDOM.render(
 	<Provider store={store}>

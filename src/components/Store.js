@@ -3,8 +3,8 @@ import { v4 } from 'uuid';
 import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
+import { connect } from 'react-redux';
 
-// import { thistle } from 'color-name';
 export default class Store extends Component {
 	constructor(props) {
 		super(props);
@@ -131,3 +131,5 @@ export default class Store extends Component {
 		);
 	}
 }
+
+Store = connect()(Store);

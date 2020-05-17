@@ -8,7 +8,7 @@ describe('pieListReducer', () => {
 		1: {
 			name: 'Apple',
 			longDescription: 'This is a long description',
-			img: require('./../assets/apple.jpeg'),
+			img: require('./../../assets/apple.jpeg'),
 			count: 5,
 			displayDetails: false
 		}
