@@ -4,6 +4,7 @@ import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
 import { connect } from 'react-redux';
+import { addPie } from './../actions/Actions';
 
 export default class Store extends Component {
 	constructor(props) {
@@ -72,7 +73,7 @@ export default class Store extends Component {
 	};
 
 	addPieToList = (pieName, description, quantity) => {
-		let newPieList = this.state.pieList;
+		const { dispatch } = this.props;
 		const id = v4();
 		let newPie = {
 			name: pieName,
@@ -82,8 +83,12 @@ export default class Store extends Component {
 			id: id,
 			displayDetails: false
 		};
-		newPieList.unshift(newPie);
-		this.setState({ pieList: newPieList, dynamicForm: null });
+		const action = addPie(newPie);
+		dispatch(action);
+		// let newPieList = this.state.pieList;
+
+		// newPieList.unshift(newPie);
+		// this.setState({ pieList: newPieList, dynamicForm: null });
 	};
 
 	pieForm = () => {

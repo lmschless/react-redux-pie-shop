@@ -25,28 +25,12 @@ describe('pie reducer tests', () => {
 		id: 2
 	};
 
-	// test('Should return default state if no action type is recognized', () => {
-	// 	expect(pieListReducer({}, { type: null })).toEqual({});
-	// });
+	test('Should return default state if no action type is recognized', () => {
+		expect(pieReducer({}, { type: null })).toEqual({});
+	});
 
 	test('ADD_PIE', () => {
-		const { name, longDescription, img, count, displayDetails, id } = pieOrder;
-		action = {
-			type: ADD_PIE,
-			name: name,
-			longDescription: longDescription,
-			img: img,
-			count: count,
-			displayDetails: displayDetails,
-			id: id
-		};
-		expect(pieReducer({}, action)).toEqual({
-			name: name,
-			longDescription: longDescription,
-			img: img,
-			count: count,
-			displayDetails: displayDetails,
-			id: id
-		});
+		action = { type: ADD_PIE, data: pieOrder };
+		expect(pieReducer({}, action)).toEqual([ pieOrder ]);
 	});
 });

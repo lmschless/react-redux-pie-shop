@@ -6,11 +6,51 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers/pie-list-reducer';
+import reducer from './reducers/Reducers';
+import { v4 } from 'uuid';
 
-const store = createStore(reducer);
+const initialPieList = [
+	{
+		name: 'Pecan Pie',
+		longDescription:
+			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+		img: require('./assets/pecan.jpeg'),
+		count: 8,
+		displayDetails: false
+	},
+	{
+		name: 'Apple Pie',
+		longDescription:
+			'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
+		img: require('./assets/apple.jpeg'),
+		count: 5,
+		displayDetails: false
+	},
+	{
+		name: 'Cherry Pie',
+		longDescription:
+			'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
+		img: require('./assets/cherry.jpg'),
+		count: 4,
+		displayDetails: false
+	},
+	{
+		name: 'Blueberry Pie',
+		longDescription:
+			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+		img: require('./assets/blueberry.jpeg'),
+		count: 2,
+		displayDetails: false
+	}
+];
 
-store.subscribe(() => console.log(state.getState()));
+initialPieList.forEach((pie) => {
+	pie.id = v4();
+});
+
+const store = createStore(reducer, initialPieList);
+
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
 	<Provider store={store}>
