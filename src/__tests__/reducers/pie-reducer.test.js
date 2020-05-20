@@ -1,7 +1,7 @@
-import pieListReducer from '../../reducers/pie-list-reducer';
-import * as c from './../../actions/ActionTypes';
+import pieListReducer from '../../reducers/Reducers';
+import { ADD_PIE } from '../../actions/Actions';
 
-describe('pieListReducer', () => {
+describe('pie reducer tests', () => {
 	const currentState = {
 		1: {
 			name: 'Apple',
@@ -30,10 +30,10 @@ describe('pieListReducer', () => {
 		expect(pieListReducer({}, { type: null })).toEqual({});
 	});
 
-	test('Should successfully add new pie data to pieList', () => {
+	test('ADD_PIE', () => {
 		const { name, longDescription, img, count, displayDetails, id } = pieOrder;
 		action = {
-			type: c.ADD_PIE,
+			type: ADD_PIE,
 			name: name,
 			longDescription: longDescription,
 			img: img,

@@ -1,9 +1,11 @@
-import * as c from './ActionTypes';
+import { combineReducers } from 'redux';
+
+export const ADD_PIE = 'ADD_PIE';
 
 export const addPie = (pie) => {
 	const { name, longDesciption, img, count, displayDetails, id } = pie;
 	return {
-		type: c.ADD_PIE,
+		type: ADD_PIE,
 		name: name,
 		longDesciption: longDesciption,
 		img: img,

@@ -1,5 +1,6 @@
-import * as c from './../actions/ActionTypes';
+import { ADD_PIE } from './../actions/Actions';
 import { v4 } from 'uuid';
+import { combineReducers } from 'redux';
 
 const initialPieList = [
 	{
@@ -40,10 +41,10 @@ initialPieList.forEach((pie) => {
 	pie.id = v4();
 });
 
-export default (state = initialPieList, action) => {
+const pieReducer = (state = initialPieList, action) => {
 	const { name, longDescription, img, count, displayDetails, id } = action;
 	switch (action.type) {
-		case c.PIE_LIST:
+		case ADD_PIE:
 			return Object.assign({}, state, {
 				[id]: {
 					name: name,
@@ -58,3 +59,5 @@ export default (state = initialPieList, action) => {
 			return state;
 	}
 };
+
+export default combineReducers({ pieReducer });
