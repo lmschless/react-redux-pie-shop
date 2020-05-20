@@ -2,7 +2,7 @@ import { ADD_PIE } from './../actions/Actions';
 import { v4 } from 'uuid';
 import { combineReducers } from 'redux';
 
-const initialPieList = [
+export const initialPieList = [
 	{
 		name: 'Pecan Pie',
 		longDescription:
@@ -41,23 +41,21 @@ initialPieList.forEach((pie) => {
 	pie.id = v4();
 });
 
-const pieReducer = (state = initialPieList, action) => {
+export default (state = {}, action) => {
 	const { name, longDescription, img, count, displayDetails, id } = action;
 	switch (action.type) {
 		case ADD_PIE:
 			return Object.assign({}, state, {
-				[id]: {
-					name: name,
-					longDescription: longDescription,
-					img: img,
-					count: count,
-					displayDetails: displayDetails,
-					id: id
-				}
+				name: name,
+				longDescription: longDescription,
+				img: img,
+				count: count,
+				displayDetails: displayDetails,
+				id: id
 			});
 		default:
 			return state;
 	}
 };
 
-export default combineReducers({ pieReducer });
+// export default combineReducers({ pieReducer });
