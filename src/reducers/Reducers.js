@@ -45,7 +45,8 @@ export default (state, action) => {
 	const { type, data } = action;
 	switch (type) {
 		case ADD_PIE:
-			return [ { ...data, ...state } ];
+			// returns an array of objects. puts the new pie (DATA) at the front of the array.
+			return [ { ...data }, ...state ];
 		default:
 			return state;
 	}
