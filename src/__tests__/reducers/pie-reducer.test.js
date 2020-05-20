@@ -31,6 +31,6 @@ describe('pie reducer tests', () => {
 
 	test('ADD_PIE', () => {
 		action = { type: ADD_PIE, data: pieOrder };
-		expect(pieReducer({}, action)).toEqual([ pieOrder ]);
+		expect(pieReducer({}, action)).toEqual(pieOrder);
 	});
 });
