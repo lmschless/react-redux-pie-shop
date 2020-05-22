@@ -11,45 +11,46 @@ export default class Store extends Component {
 		super(props);
 		this.state = {
 			dynamicForm: null,
-			style: { display: 'none' },
-			pieList: [
-				{
-					name: 'Pecan Pie',
-					longDescription:
-						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-					img: require('./../assets/pecan.jpeg'),
-					count: 8,
-					displayDetails: false
-				},
-				{
-					name: 'Apple Pie',
-					longDescription:
-						'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
-					img: require('./../assets/apple.jpeg'),
-					count: 5,
-					displayDetails: false
-				},
-				{
-					name: 'Cherry Pie',
-					longDescription:
-						'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
-					img: require('./../assets/cherry.jpg'),
-					count: 4,
-					displayDetails: false
-				},
-				{
-					name: 'Blueberry Pie',
-					longDescription:
-						'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-					img: require('./../assets/blueberry.jpeg'),
-					count: 2,
-					displayDetails: false
-				}
-			]
+			style: { display: 'none' }
+			// 	pieList: [
+			// 		{
+			// 			name: 'Pecan Pie',
+			// 			longDescription:
+			// 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+			// 			img: require('./../assets/pecan.jpeg'),
+			// 			count: 8,
+			// 			displayDetails: false
+			// 		},
+			// 		{
+			// 			name: 'Apple Pie',
+			// 			longDescription:
+			// 				'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
+			// 			img: require('./../assets/apple.jpeg'),
+			// 			count: 5,
+			// 			displayDetails: false
+			// 		},
+			// 		{
+			// 			name: 'Cherry Pie',
+			// 			longDescription:
+			// 				'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
+			// 			img: require('./../assets/cherry.jpg'),
+			// 			count: 4,
+			// 			displayDetails: false
+			// 		},
+			// 		{
+			// 			name: 'Blueberry Pie',
+			// 			longDescription:
+			// 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+			// 			img: require('./../assets/blueberry.jpeg'),
+			// 			count: 2,
+			// 			displayDetails: false
+			// 		}
+			// 	]
+			// };
+			// this.state.pieList.forEach((pie) => {
+			// 	pie.id = v4();
+			// });
 		};
-		this.state.pieList.forEach((pie) => {
-			pie.id = v4();
-		});
 	}
 
 	handlePurchase = (id) => {
