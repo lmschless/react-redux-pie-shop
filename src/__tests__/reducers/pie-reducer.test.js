@@ -32,16 +32,9 @@ describe('pie reducer tests', () => {
 	test('ADD_PIE', () => {
 		action = {
 			type: ADD_PIE,
-			data: {
-				name: 'Blueberry Pie',
-				longDescription:
-					'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-				img: require('./../../assets/blueberry.jpeg'),
-				count: 2,
-				displayDetails: false,
-				id: 2
-			}
+			data: pieOrder
 		};
-		expect(pieReducer({}, action)).toEqual(pieOrder);
+		// const state = reducer({ pieReducer: {}, action });
+		expect(pieReducer([], action)).toEqual([ pieOrder ]);
 	});
 });
