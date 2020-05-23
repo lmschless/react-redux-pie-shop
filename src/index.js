@@ -9,48 +9,46 @@ import { Provider } from 'react-redux';
 import reducer from './reducers/Reducers';
 import { v4 } from 'uuid';
 
-let id = v4();
-
 const initialState = {
 	initialPieList: {
-		[v4()]: {
+		1: {
 			name: 'Pecan Pie',
 			longDescription:
 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 			img: require('./assets/pecan.jpeg'),
 			count: 8,
 			displayDetails: false,
-			id
+			id: v4()
 		},
-		[v4()]: {
+		2: {
 			name: 'Apple Pie',
 			longDescription:
 				'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
 			img: require('./assets/apple.jpeg'),
 			count: 5,
 			displayDetails: false,
-			id
+			id: v4()
 		},
-		[v4()]: {
+		3: {
 			name: 'Cherry Pie',
 			longDescription:
 				'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
 			img: require('./assets/cherry.jpg'),
 			count: 4,
 			displayDetails: false,
-			id
+			id: v4()
 		},
-		[v4()]: {
+		4: {
 			name: 'Blueberry Pie',
 			longDescription:
 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 			img: require('./assets/blueberry.jpeg'),
 			count: 2,
 			displayDetails: false,
-			id
+			id: v4()
 		}
 	},
-	dyanmicForm: null,
+	dynamicForm: null,
 	style: { display: 'none' }
 };
 

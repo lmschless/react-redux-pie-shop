@@ -7,7 +7,8 @@ export default (state, action) => {
 		case ADD_PIE:
 			return {
 				...state,
-				initialPieList: [ ...state.initialPieList, action.data ]
+				initialPieList: { ...state.initialPieList },
+				...action.data
 			};
 
 		// const pieList = state.initialPieList;

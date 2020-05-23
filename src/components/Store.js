@@ -53,24 +53,39 @@ export default class Store extends Component {
 		// });
 	}
 
-	handlePurchase = (id) => {
+	handlePurchase = ([ id ]) => {
 		// const { dispatch } = this.props;
+		console.log(`inside store: ${id}`);
+		console.log(this.props.pieList);
+		const selectedPie = this.props.pieList[id];
+		console.log(selectedPie);
+		// let count = selectedPie.count - 1;
+		// if (count < 1) {
+		// 	count = 0;
+		// }
+		// this.props.buyPie(
+		// 	selectedPie.name,
+		// 	selectedPie.longDescription,
+		// 	selectedPie.img,
+		// 	count,
+		// 	selectedPie.displayDetails,
+		// 	id
+		// );
 
-		const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
-		let count = selectedPie.count - 1;
-		if (count < 1) {
-			count = 0;
-		}
-		this.props.buyPie(
-			selectedPie.name,
-			selectedPie.longDescription,
-			selectedPie.img,
-			count,
-			selectedPie.displayDetails,
-			id
-		);
+		// const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
+		// let count = selectedPie.count - 1;
+		// if (count < 1) {
+		// 	count = 0;
+		// }
+		// this.props.buyPie(
+		// 	selectedPie.name,
+		// 	selectedPie.longDescription,
+		// 	selectedPie.img,
+		// 	count,
+		// 	selectedPie.displayDetails,
+		// 	id
+		// );
 		// dispatch(action);
-		console.log(selectedPie.count);
 		// this.setState({
 		// 	pie: selectedPie
 		// });

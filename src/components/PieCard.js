@@ -42,7 +42,8 @@ function PieCard(props) {
 				<Button
 					id={props.id}
 					onClick={() => {
-						props.onPurchase(props.id);
+						console.log(props.id);
+						props.onPurchase([ props.id ]);
 					}}
 					color="success"
 				>
