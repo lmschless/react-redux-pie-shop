@@ -1,15 +1,16 @@
 import { ADD_PIE, BUY_PIE, PIE_FORM } from './../actions/Actions';
 import { combineReducers } from 'redux';
+import { v4 } from 'uuid';
 
 export default (state, action) => {
 	const { type, data } = action;
 	switch (type) {
 		case ADD_PIE:
-			return {
-				...state,
-				initialPieList: { ...state.initialPieList },
-				...action.data
-			};
+			return Object.assign({}, state, {
+				[v4()]: {
+					data
+				}
+			});
 
 		// const pieList = state.initialPieList;
 		// // returns an array of objects. puts the new pie (DATA) at the front of the array.
