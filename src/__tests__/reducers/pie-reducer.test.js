@@ -1,5 +1,5 @@
 import pieReducer from '../../reducers/Reducers';
-import { ADD_PIE } from '../../actions/Actions';
+import { ADD_PIE, BUY_PIE } from '../../actions/Actions';
 
 describe('pie reducer tests', () => {
 	const currentState = {
@@ -25,6 +25,16 @@ describe('pie reducer tests', () => {
 		id: 2
 	};
 
+	const updatedPieOrder = {
+		name: 'Blueberry Pie',
+		longDescription:
+			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+		img: require('./../../assets/blueberry.jpeg'),
+		count: 1,
+		displayDetails: false,
+		id: 2
+	};
+
 	test('Should return default state if no action type is recognized', () => {
 		expect(pieReducer({}, { type: null })).toEqual({});
 	});
@@ -36,5 +46,13 @@ describe('pie reducer tests', () => {
 		};
 		// const state = reducer({ pieReducer: {}, action });
 		expect(pieReducer([], action)).toEqual([ pieOrder ]);
+	});
+
+	test('BUY_PIE', () => {
+		action = {
+			type: BUY_PIE,
+			data: { pieOrder }
+		};
+		expect(pieReducer({}, action)).toEqual([ updatedPieOrder ]);
 	});
 });

@@ -61,7 +61,6 @@ export default class Store extends Component {
 		if (count < 1) {
 			count = 0;
 		}
-		console.log('count greater than 0');
 		this.props.buyPie(
 			selectedPie.name,
 			selectedPie.longDescription,
@@ -80,13 +79,13 @@ export default class Store extends Component {
 	pieDetail = (id) => {
 		const selectedCard = this.props.pieList.filter((pie) => pie.id === id)[0];
 		selectedCard.displayDetails = !selectedCard.displayDetails;
-		this.setState({
-			pie: selectedCard
-		});
+		// this.setState({
+		// 	pie: selectedCard
+		// });
 	};
 
 	addPieToList = (pieName, description, quantity) => {
-		const { dispatch } = this.props;
+		// const { dispatch } = this.props;
 		const id = v4();
 		let newPie = {
 			name: pieName,
@@ -96,8 +95,10 @@ export default class Store extends Component {
 			id: id,
 			displayDetails: false
 		};
-		const action = addPie(newPie);
-		dispatch(action);
+		this.props.addPie(newPie);
+
+		// const action = addPie(newPie);
+		// dispatch(action);
 		// let newPieList = this.state.pieList;
 
 		// newPieList.unshift(newPie);
@@ -156,4 +157,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-Store = connect(mapStateToProps, { buyPie })(Store);
+Store = connect(mapStateToProps, { addPie, buyPie })(Store);

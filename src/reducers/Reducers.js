@@ -1,4 +1,4 @@
-import { ADD_PIE, BUY_PIE } from './../actions/Actions';
+import { ADD_PIE, BUY_PIE, PIE_FORM } from './../actions/Actions';
 import { v4 } from 'uuid';
 import { combineReducers } from 'redux';
 
@@ -10,6 +10,9 @@ export default (state, action) => {
 			return [ data, ...state ];
 		case BUY_PIE:
 			return state.map((pie) => (pie.id === data.id ? { ...data } : pie));
+
+		// case PIE_FORM:
+
 		default:
 			return state;
 	}
