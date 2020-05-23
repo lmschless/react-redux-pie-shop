@@ -16,10 +16,23 @@ export const addPie = (pie) => {
 	};
 };
 
-export const buyPie = (id) => {
-	// const {}
+export const buyPie = (
+	name,
+	longDescription,
+	img,
+	count,
+	displayDetails,
+	id
+) => {
 	return {
 		type: BUY_PIE,
-		data: id
+		data: {
+			name,
+			longDescription,
+			img,
+			count,
+			displayDetails,
+			id
+		}
 	};
 };
