@@ -9,46 +9,56 @@ import { Provider } from 'react-redux';
 import reducer from './reducers/Reducers';
 import { v4 } from 'uuid';
 
-const initialPieList = [
-	{
-		name: 'Pecan Pie',
-		longDescription:
-			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-		img: require('./assets/pecan.jpeg'),
-		count: 8,
-		displayDetails: false
-	},
-	{
-		name: 'Apple Pie',
-		longDescription:
-			'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
-		img: require('./assets/apple.jpeg'),
-		count: 5,
-		displayDetails: false
-	},
-	{
-		name: 'Cherry Pie',
-		longDescription:
-			'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
-		img: require('./assets/cherry.jpg'),
-		count: 4,
-		displayDetails: false
-	},
-	{
-		name: 'Blueberry Pie',
-		longDescription:
-			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-		img: require('./assets/blueberry.jpeg'),
-		count: 2,
-		displayDetails: false
-	}
-];
+let id = v4();
 
-initialPieList.forEach((pie) => {
-	pie.id = v4();
-});
+const initialState = {
+	initialPieList: {
+		[v4()]: {
+			name: 'Pecan Pie',
+			longDescription:
+				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+			img: require('./assets/pecan.jpeg'),
+			count: 8,
+			displayDetails: false,
+			id
+		},
+		[v4()]: {
+			name: 'Apple Pie',
+			longDescription:
+				'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
+			img: require('./assets/apple.jpeg'),
+			count: 5,
+			displayDetails: false,
+			id
+		},
+		[v4()]: {
+			name: 'Cherry Pie',
+			longDescription:
+				'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
+			img: require('./assets/cherry.jpg'),
+			count: 4,
+			displayDetails: false,
+			id
+		},
+		[v4()]: {
+			name: 'Blueberry Pie',
+			longDescription:
+				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
+			img: require('./assets/blueberry.jpeg'),
+			count: 2,
+			displayDetails: false,
+			id
+		}
+	},
+	dyanmicForm: null,
+	style: { display: 'none' }
+};
 
-const store = createStore(reducer, initialPieList);
+// initialState.initialPieList.forEach((pie) => {
+// 	pie.id = v4();
+// });
+
+const store = createStore(reducer, initialState);
 
 store.subscribe(() => console.log(store.getState()));
 

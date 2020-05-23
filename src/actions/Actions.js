@@ -38,8 +38,9 @@ export const buyPie = (
 	};
 };
 
-export const pieForm = () => {
-	return {
-		type: PIE_FORM
-	};
-};
+// export const pieForm = (id) => {
+// 	return {
+// 		type: PIE_FORM
+// 		data:
+// 	};
+// };

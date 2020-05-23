@@ -131,20 +131,22 @@ export default class Store extends Component {
 				<NavBar onForm={this.pieForm} />
 				<div style={gridContainer}>
 					{this.state.dynamicForm}
-					{Object.values(this.props.pieList).map((pie) => (
-						<PieCard
-							name={pie.name}
-							img={pie.img}
-							count={pie.count}
-							key={pie.id}
-							onPurchase={this.handlePurchase}
-							showDetails={this.pieDetail}
-							hide={pie.displayDetails}
-							id={pie.id}
-							longDescription={pie.longDescription}
-							style={this.state.style}
-						/>
-					))}
+					{Object.values(this.props.pieList).map((pie) => {
+						return (
+							<PieCard
+								name={pie.name}
+								img={pie.img}
+								count={pie.count}
+								key={pie.id}
+								id={pie.id}
+								onPurchase={this.handlePurchase}
+								showDetails={this.pieDetail}
+								hide={pie.displayDetails}
+								longDescription={pie.longDescription}
+								style={this.state.style}
+							/>
+						);
+					})}
 				</div>
 			</React.Fragment>
 		);
@@ -153,7 +155,7 @@ export default class Store extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		pieList: state
+		pieList: state.initialPieList
 	};
 };
 
