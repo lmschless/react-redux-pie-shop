@@ -3,6 +3,8 @@
 ## _5/5/20_
 ### By _**Luke Schlessinger**_
 
+### GH-Pages link: https://lmschless.github.io/react-redux-pie-shop/
+
 * #### _The app handles new pie card creation after user clicks on the nav button. The PieForm component is rendered and once the user clicks submit, a new pie is added to the beginning parent's state array. On next render, this new card will display at the first position._
 
 * #### _The app utilizes css grid to handle dynamically added cards which space and size accordingly._
