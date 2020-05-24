@@ -18,14 +18,10 @@ export default class Store extends Component {
 		console.log(test);
 
 		const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
-		console.log(selectedPie);
-		console.log(selectedPie.count);
 		let count = selectedPie.count - 1;
 		if (count < 1) {
 			count = 0;
 		}
-		console.log(count);
-
 		this.props.buyPie(
 			selectedPie.name,
 			selectedPie.longDescription,
