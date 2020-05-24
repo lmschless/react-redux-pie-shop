@@ -1,9 +1,7 @@
-import { ADD_PIE, BUY_PIE, PIE_FORM, SHOW_DETAILS } from './../actions/Actions';
-import { combineReducers } from 'redux';
-import { v4 } from 'uuid';
+import { ADD_PIE, BUY_PIE, PIE_FORM } from './../actions/Actions';
 
 export default (state, action) => {
-	const { type, data, id } = action;
+	const { type, data } = action;
 	let pieList;
 	switch (type) {
 		case ADD_PIE:
@@ -22,15 +20,6 @@ export default (state, action) => {
 		case PIE_FORM:
 			return { ...state, dynamicForm: data };
 
-		case SHOW_DETAILS:
-			pieList = state.initialPieList;
-
-			return {
-				...state,
-				initialPieList: pieList.map(
-					(pie) => (pie.id === data.id ? { ...data } : pie)
-				)
-			};
 		default:
 			return state;
 	}

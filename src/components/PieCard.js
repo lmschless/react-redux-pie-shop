@@ -33,9 +33,6 @@ function PieCard(props) {
 						width="100%"
 						src={props.img}
 						alt="Card image cap"
-						onClick={() => {
-							props.showDetails(props.id);
-						}}
 					/>
 				</center>
 				<div>{props.hide ? <p>{props.longDescription}</p> : null}</div>
@@ -43,7 +40,6 @@ function PieCard(props) {
 				<Button
 					id={props.id}
 					onClick={() => {
-						console.log(props.id);
 						props.onPurchase(props.id);
 					}}
 					color="success"
