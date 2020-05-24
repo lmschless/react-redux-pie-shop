@@ -5,13 +5,9 @@ import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
 import { connect } from 'react-redux';
-import { addPie, buyPie } from './../actions/Actions';
+import { addPie, buyPie, pieForm } from './../actions/Actions';
 
 export default class Store extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	handlePurchase = (id) => {
 		// const { dispatch } = this.props;
 		const test = id;
@@ -80,9 +76,7 @@ export default class Store extends Component {
 	};
 
 	pieForm = () => {
-		this.setState({
-			dynamicForm: <PieForm addPie={this.addPieToList} />
-		});
+		this.props.pieForm(true);
 	};
 
 	render() {
@@ -104,7 +98,10 @@ export default class Store extends Component {
 			<React.Fragment>
 				<NavBar onForm={this.pieForm} />
 				<div style={gridContainer}>
-					{this.props.dynamicForm}
+					{this.props.dynamicForm ? (
+						<PieForm addPie={this.addPieToList} />
+					) : null}
+
 					{Object.values(this.props.pieList).map((pie) => {
 						return (
 							<PieCard
@@ -138,4 +135,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-Store = connect(mapStateToProps, { addPie, buyPie })(Store);
+Store = connect(mapStateToProps, { addPie, buyPie, pieForm })(Store);

@@ -4,28 +4,29 @@ import { v4 } from 'uuid';
 
 export default (state, action) => {
 	const { type, data } = action;
+	let pieList;
 	switch (type) {
 		case ADD_PIE:
-			return Object.assign({}, state, {
-				[v4()]: {
-					data
-				}
-			});
+			pieList = state.initialPieList;
+			// returns an array of objects. puts the new pie (DATA) at the front of the array.
+			return [ data, ...pieList ];
+		// return Object.assign({}, state, {
+		// 	[v4()]: {
+		// 		data
+		// 	}
+		// });
 
-		// const pieList = state.initialPieList;
-		// // returns an array of objects. puts the new pie (DATA) at the front of the array.
-		// return [ data, ...pieList ];
 		case BUY_PIE:
 			// working***
-			const pieList = state.initialPieList;
+			pieList = state.initialPieList;
 			return {
 				...state,
 				initialPieList: pieList.map(
 					(pie) => (pie.id === data.id ? { ...data } : pie)
 				)
 			};
-		// case PIE_FORM:
-		// 	return {...state, ...}
+		case PIE_FORM:
+			return { ...state, dynamicForm: true };
 
 		default:
 			return state;

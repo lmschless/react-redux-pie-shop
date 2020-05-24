@@ -82,6 +82,19 @@ describe('pie reducer tests', () => {
 			]
 		});
 	});
+
+	test('PIE_FORM', () => {
+		let state;
+		state = pieReducer(
+			{
+				dynamicForm: null
+			},
+			{ type: 'PIE_FORM', data: true }
+		);
+		expect(state).toEqual({
+			dynamicForm: true
+		});
+	});
 });
 
 // state = reducers(
