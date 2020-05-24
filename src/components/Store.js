@@ -65,7 +65,9 @@ export default class Store extends Component {
 			id: id,
 			displayDetails: false
 		};
+		this.props.pieForm(false);
 		this.props.addPie(newPie);
+		// reset pie form when new pie is submitted
 
 		// const action = addPie(newPie);
 		// dispatch(action);
@@ -76,6 +78,7 @@ export default class Store extends Component {
 	};
 
 	pieForm = () => {
+		// handles showing the order form when nav button is clicked.
 		this.props.pieForm(true);
 	};
 
@@ -93,7 +96,6 @@ export default class Store extends Component {
 			margin: '5em'
 		};
 		// const pieList = this.props.pieList;
-
 		return (
 			<React.Fragment>
 				<NavBar onForm={this.pieForm} />

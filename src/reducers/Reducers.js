@@ -9,13 +9,7 @@ export default (state, action) => {
 		case ADD_PIE:
 			pieList = state.initialPieList;
 			// returns an array of objects. puts the new pie (DATA) at the front of the array.
-			return [ data, ...pieList ];
-		// return Object.assign({}, state, {
-		// 	[v4()]: {
-		// 		data
-		// 	}
-		// });
-
+			return { ...state, initialPieList: [ data, ...state.initialPieList ] };
 		case BUY_PIE:
 			// working***
 			pieList = state.initialPieList;
@@ -26,8 +20,7 @@ export default (state, action) => {
 				)
 			};
 		case PIE_FORM:
-			return { ...state, dynamicForm: true };
-
+			return { ...state, dynamicForm: data };
 		default:
 			return state;
 	}
