@@ -3,24 +3,17 @@
 ## _5/5/20_
 ### By _**Luke Schlessinger**_
 
-<img src='./test1.gif'>
-
 * #### _The app handles new pie card creation after user clicks on the nav button. The PieForm component is rendered and once the user clicks submit, a new pie is added to the beginning parent's state array. On next render, this new card will display at the first position._
 
 * #### _The app utilizes css grid to handle dynamically added cards which space and size accordingly._
 
-* #### _Card images are clickable which will display more details!_
-
-
-
-
 
 ## Setup/Installation Requirements
-* `Clone repo, run npm install, type "npm start" (you may have to refresh the page once for it to load). Card images are clickable which will display the card details!`
+* `Clone repo, run npm install, type "npm start" (you may have to refresh the page once for it to load).`
 
 ## Technologies Used
 
-_React, ReactStrap, jQuery, webpack, Google Fonts, CSS._
+_React, Redux ReactStrap, jQuery, webpack, Google Fonts, CSS._
 
 ## Specifications:
   * Spec 1: The app loads with 4 cards featuring 4 different pies. These are created dynamically using an array of objects stored in state.
