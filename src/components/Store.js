@@ -5,14 +5,10 @@ import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
 import { connect } from 'react-redux';
-import { addPie, buyPie, pieForm } from './../actions/Actions';
+import { addPie, buyPie, pieForm, pieDetails } from './../actions/Actions';
 
 export default class Store extends Component {
 	handlePurchase = (id) => {
-		// const { dispatch } = this.props;
-		const test = id;
-		console.log(test);
-
 		const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
 		let count = selectedPie.count - 1;
 		if (count < 1) {
@@ -26,36 +22,23 @@ export default class Store extends Component {
 			selectedPie.displayDetails,
 			id
 		);
-
-		// const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
-		// let count = selectedPie.count - 1;
-		// if (count < 1) {
-		// 	count = 0;
-		// }
-		// this.props.buyPie(
-		// 	selectedPie.name,
-		// 	selectedPie.longDescription,
-		// 	selectedPie.img,
-		// 	count,
-		// 	selectedPie.displayDetails,
-		// 	id
-		// );
-		// dispatch(action);
-		// this.setState({
-		// 	pie: selectedPie
-		// });
 	};
 
 	pieDetail = (id) => {
 		const selectedCard = this.props.pieList.filter((pie) => pie.id === id)[0];
-		selectedCard.displayDetails = !selectedCard.displayDetails;
-		// this.setState({
-		// 	pie: selectedCard
-		// });
+		console.log(selectedCard);
+		let displayDetails = null;
+		this.props.pieDetails(
+			selectedCard.name,
+			selectedCard.longDescription,
+			selectedCard.img,
+			selectedCard.count,
+			displayDetails,
+			id
+		);
 	};
 
 	addPieToList = (pieName, description, quantity) => {
-		// const { dispatch } = this.props;
 		const id = v4();
 		let newPie = {
 			name: pieName,
@@ -65,16 +48,9 @@ export default class Store extends Component {
 			id: id,
 			displayDetails: false
 		};
+		// reset pie form when new pie is submitted
 		this.props.pieForm(false);
 		this.props.addPie(newPie);
-		// reset pie form when new pie is submitted
-
-		// const action = addPie(newPie);
-		// dispatch(action);
-		// let newPieList = this.state.pieList;
-
-		// newPieList.unshift(newPie);
-		// this.setState({ pieList: newPieList, dynamicForm: null });
 	};
 
 	pieForm = () => {
@@ -114,9 +90,9 @@ export default class Store extends Component {
 								id={pie.id}
 								onPurchase={this.handlePurchase}
 								showDetails={this.pieDetail}
-								hide={pie.displayDetails}
+								hide={this.props.details}
 								longDescription={pie.longDescription}
-								style={this.props.style}
+								style={this.props.details}
 							/>
 						);
 					})}
@@ -133,8 +109,11 @@ Store.propTypes = {
 const mapStateToProps = (state) => {
 	return {
 		pieList: state.initialPieList,
-		dynamicForm: state.dynamicForm
+		dynamicForm: state.dynamicForm,
+		details: state.initialPieList
 	};
 };
 
-Store = connect(mapStateToProps, { addPie, buyPie, pieForm })(Store);
+Store = connect(mapStateToProps, { addPie, buyPie, pieForm, pieDetails })(
+	Store
+);

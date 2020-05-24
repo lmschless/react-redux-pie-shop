@@ -1,18 +1,7 @@
 import pieReducer from '../../reducers/Reducers';
-import { ADD_PIE, BUY_PIE } from '../../actions/Actions';
+import { ADD_PIE, BUY_PIE, PIE_FORM } from '../../actions/Actions';
 
 describe('pie reducer tests', () => {
-	const currentState = {
-		1: {
-			name: 'Apple',
-			longDescription: 'This is a long description',
-			img: require('./../../assets/apple.jpeg'),
-			count: 5,
-			displayDetails: false,
-			id: 1
-		}
-	};
-
 	test('Should return default state if no action type is recognized', () => {
 		expect(pieReducer({}, { type: null })).toEqual({});
 	});
@@ -63,7 +52,7 @@ describe('pie reducer tests', () => {
 				style: { display: 'none' }
 			},
 			{
-				type: 'ADD_PIE',
+				type: ADD_PIE,
 				data: {
 					name: 'Peach',
 					longDescription: 'yummy',
@@ -143,7 +132,7 @@ describe('pie reducer tests', () => {
 				]
 			},
 			{
-				type: 'BUY_PIE',
+				type: BUY_PIE,
 				data: {
 					name: 'Apple Pie',
 					longDescription:
@@ -177,7 +166,7 @@ describe('pie reducer tests', () => {
 			{
 				dynamicForm: null
 			},
-			{ type: 'PIE_FORM', data: true }
+			{ type: PIE_FORM, data: true }
 		);
 		expect(state).toEqual({
 			dynamicForm: true

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardTitle, CardImg, Button } from 'reactstrap';
+
 function PieCard(props) {
 	const cardStyles = {
 		backgroundColor: '#FFFFFF',

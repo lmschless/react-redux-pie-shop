@@ -17,7 +17,7 @@ const initialState = {
 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
 			img: require('./assets/pecan.jpeg'),
 			count: 8,
-			displayDetails: false,
+			displayDetails: { display: 'none' },
 			id: v4()
 		},
 		{
