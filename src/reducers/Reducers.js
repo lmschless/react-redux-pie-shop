@@ -16,8 +16,14 @@ export default (state, action) => {
 		// // returns an array of objects. puts the new pie (DATA) at the front of the array.
 		// return [ data, ...pieList ];
 		case BUY_PIE:
-			return state.map((pie) => (pie.id === data.id ? { ...data } : pie));
-
+			// working***
+			const pieList = state.initialPieList;
+			return {
+				...state,
+				initialPieList: pieList.map(
+					(pie) => (pie.id === data.id ? { ...data } : pie)
+				)
+			};
 		// case PIE_FORM:
 		// 	return {...state, ...}
 

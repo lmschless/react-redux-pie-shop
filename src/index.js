@@ -10,8 +10,8 @@ import reducer from './reducers/Reducers';
 import { v4 } from 'uuid';
 
 const initialState = {
-	initialPieList: {
-		1: {
+	initialPieList: [
+		{
 			name: 'Pecan Pie',
 			longDescription:
 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
@@ -20,7 +20,7 @@ const initialState = {
 			displayDetails: false,
 			id: v4()
 		},
-		2: {
+		{
 			name: 'Apple Pie',
 			longDescription:
 				'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
@@ -29,7 +29,7 @@ const initialState = {
 			displayDetails: false,
 			id: v4()
 		},
-		3: {
+		{
 			name: 'Cherry Pie',
 			longDescription:
 				'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
@@ -38,7 +38,7 @@ const initialState = {
 			displayDetails: false,
 			id: v4()
 		},
-		4: {
+		{
 			name: 'Blueberry Pie',
 			longDescription:
 				'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
@@ -47,7 +47,7 @@ const initialState = {
 			displayDetails: false,
 			id: v4()
 		}
-	},
+	],
 	dynamicForm: null,
 	style: { display: 'none' }
 };
@@ -56,7 +56,11 @@ const initialState = {
 // 	pie.id = v4();
 // });
 
-const store = createStore(reducer, initialState);
+const store = createStore(
+	reducer,
+	initialState,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 store.subscribe(() => console.log(store.getState()));
 

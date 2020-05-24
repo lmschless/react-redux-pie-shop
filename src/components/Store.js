@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 import PieCard from './PieCard';
 import NavBar from './Nav';
 import PieForm from './PieForm';
@@ -9,68 +10,30 @@ import { addPie, buyPie } from './../actions/Actions';
 export default class Store extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			dynamicForm: null,
-			style: { display: 'none' }
-
-			// pieList: [
-			// 	{
-			// 		name: 'Pecan Pie',
-			// 		longDescription:
-			// 			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-			// 		img: require('./../assets/pecan.jpeg'),
-			// 		count: 8,
-			// 		displayDetails: false
-			// 	},
-			// 	{
-			// 		name: 'Apple Pie',
-			// 		longDescription:
-			// 			'Apple pie is an unofficial symbol of the United States and one of its signature comfort foods.',
-			// 		img: require('./../assets/apple.jpeg'),
-			// 		count: 5,
-			// 		displayDetails: false
-			// 	},
-			// 	{
-			// 		name: 'Cherry Pie',
-			// 		longDescription:
-			// 			'Pie baked with a cherry filling. Traditionally, cherry pie is made with tart rather than sweet cherries. ',
-			// 		img: require('./../assets/cherry.jpg'),
-			// 		count: 4,
-			// 		displayDetails: false
-			// 	},
-			// 	{
-			// 		name: 'Blueberry Pie',
-			// 		longDescription:
-			// 			'Pecan pie is a pie of pecan nuts mixed with a filling of eggs, butter, and sugar. ',
-			// 		img: require('./../assets/blueberry.jpeg'),
-			// 		count: 2,
-			// 		displayDetails: false
-			// 	}
-			// ]
-		};
-		// this.state.pieList.forEach((pie) => {
-		// 	pie.id = v4();
-		// });
 	}
 
 	handlePurchase = (id) => {
 		// const { dispatch } = this.props;
-		console.log(`inside store: ${id}`);
-		console.log(this.props.pieList);
-		const selectedPie = this.props.pieList[[ id ]];
+		const test = id;
+		console.log(test);
+
+		const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
 		console.log(selectedPie);
-		// let count = selectedPie.count - 1;
-		// if (count < 1) {
-		// 	count = 0;
-		// }
-		// this.props.buyPie(
-		// 	selectedPie.name,
-		// 	selectedPie.longDescription,
-		// 	selectedPie.img,
-		// 	count,
-		// 	selectedPie.displayDetails,
-		// 	id
-		// );
+		console.log(selectedPie.count);
+		let count = selectedPie.count - 1;
+		if (count < 1) {
+			count = 0;
+		}
+		console.log(count);
+
+		this.props.buyPie(
+			selectedPie.name,
+			selectedPie.longDescription,
+			selectedPie.img,
+			count,
+			selectedPie.displayDetails,
+			id
+		);
 
 		// const selectedPie = this.props.pieList.filter((pie) => pie.id === id)[0];
 		// let count = selectedPie.count - 1;
@@ -145,7 +108,7 @@ export default class Store extends Component {
 			<React.Fragment>
 				<NavBar onForm={this.pieForm} />
 				<div style={gridContainer}>
-					{this.state.dynamicForm}
+					{this.props.dynamicForm}
 					{Object.values(this.props.pieList).map((pie) => {
 						return (
 							<PieCard
@@ -158,7 +121,7 @@ export default class Store extends Component {
 								showDetails={this.pieDetail}
 								hide={pie.displayDetails}
 								longDescription={pie.longDescription}
-								style={this.state.style}
+								style={this.props.style}
 							/>
 						);
 					})}
@@ -168,9 +131,14 @@ export default class Store extends Component {
 	}
 }
 
+Store.propTypes = {
+	pieList: PropTypes.array
+};
+
 const mapStateToProps = (state) => {
 	return {
-		pieList: state.initialPieList
+		pieList: state.initialPieList,
+		dynamicForm: state.dynamicForm
 	};
 };
 
